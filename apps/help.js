@@ -2,6 +2,7 @@ import lodash from 'lodash'
 import { Data } from '../components/index.js'
 import HelpTheme from './help/HelpTheme.js'
 import runtimeRender from '../common/runtimeRender.js'
+import { Config } from './utils/config.js'
 
 export class help extends plugin {
   constructor () {
@@ -24,7 +25,7 @@ export class help extends plugin {
   }
 
   async help (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
     let custom = {}
     let help = {}
     let { diyCfg, sysCfg } = await Data.importCfg('help')
@@ -77,5 +78,9 @@ export class help extends plugin {
     /** e.msg 用户的命令消息 */
     logger.info('[用户命令]', e.msg)
     await e.runtime.render('hanhan-plugin', '/help/sys.html')
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

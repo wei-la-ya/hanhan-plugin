@@ -39,7 +39,7 @@ export class voice extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   // 随机网易云
@@ -64,7 +64,7 @@ export class voice extends plugin {
   async sjcy (e) {
     // 发送消息
     await this.reply(segment.record('http://api.yujn.cn/api/changya.php?type=mp3'))
-    await is_MD(e)
+    await this.is_MD(e)
     return true // 返回true 阻挡消息不再往下
   }
 
@@ -72,7 +72,7 @@ export class voice extends plugin {
   async sjkk (e) {
     // 发送消息
     await this.reply(segment.record('http://api.yujn.cn/api/sjkunkun.php?'))
-    await is_MD(e)
+    await this.is_MD(e)
     return true // 返回true 阻挡消息不再往下
   }
 
@@ -80,21 +80,25 @@ export class voice extends plugin {
   async maren (e) {
     // 发送消息
     await this.reply(segment.record('http://api.yujn.cn/api/maren.php?'))
-    await is_MD(e)
+    await this.is_MD(e)
     return true // 返回true 阻挡消息不再往下
   }
 
   // 绿茶语音包
   async lvcha (e) {
     await this.reply(segment.record('https://api.yujn.cn/api/lvcha.php?'))
-    await is_MD(e)
+    await this.is_MD(e)
     return true // 返回true 阻挡消息不再往下
   }
-}
 
-async function is_MD (e) {
-  if (Config.enableButton || false) {
-    if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
-  if (e.bot.config?.markdown) { await e.reply('语音类菜单') }
+
+  async is_MD (e) {
+    if (Config.enableButton || false) {
+      if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
+    }
+    if (e.bot.config?.markdown) { return await this.reply('语音类菜单') }
+  }
 }

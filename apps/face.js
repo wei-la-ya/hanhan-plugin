@@ -1,4 +1,5 @@
 import plugin from '../../../lib/plugins/plugin.js'
+import { Config } from './utils/config.js'
 
 const valueMap = {
   坤坤: 'cxk',
@@ -68,7 +69,7 @@ export class diaotu extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   // 聚合
@@ -83,5 +84,9 @@ export class diaotu extends plugin {
   async cj (e) {
     await this.reply(segment.image('http://chaijun.avocado.wiki'))
     return true // 返回true 阻挡消息不再往下
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

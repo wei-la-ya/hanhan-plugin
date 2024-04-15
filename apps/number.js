@@ -1,6 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { recallSendForwardMsg } from '../utils/common.js'
 import fetch from 'node-fetch'
+import { Config } from './utils/config.js'
 
 export class morse extends plugin {
   constructor () {
@@ -31,7 +32,7 @@ export class morse extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   async 50033 (e) {
@@ -69,5 +70,9 @@ export class morse extends plugin {
     if (!e.bot.config?.markdown) { forwardMsgs.push(result) }
     let dec = e.msg
     return this.reply(await recallSendForwardMsg(e, forwardMsgs, false, dec))
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

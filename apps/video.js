@@ -53,7 +53,7 @@ export class voice extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   // 聚合
@@ -64,8 +64,8 @@ export class voice extends plugin {
       let urls = `http://ap.hanhan.icu:4006?category=${name}`
       let resp = await fetch(urls)
       // console.log(resp.url)
-      await e.reply(segment.video(resp.url))
-      await is_MD(e)
+      await this.reply(segment.video(resp.url))
+      await this.is_MD(e)
     } catch (error) {
       e.reply('报错：' + error)
     }
@@ -79,17 +79,21 @@ export class voice extends plugin {
       let res = await fetch(url) // 调用接口获取数据
       let result = await res.json()
       console.log(result)
-      e.reply(result.data.title)
-      await e.reply(segment.video(result.data.video))
+      this.reply(result.data.title)
+      await this.reply(segment.video(result.data.video))
     } catch (error) {
       e.reply('报错：' + error)
     }
   }
-}
 
-async function is_MD (e) {
-  if (Config.enableButton || false) {
-    if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
-  if (e.bot.config?.markdown) { await e.reply('视频类菜单') }
+
+  async is_MD (e) {
+    if (Config.enableButton || false) {
+      if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
+    }
+    if (e.bot.config?.markdown) { return await this.reply('视频类菜单') }
+  }
 }

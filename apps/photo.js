@@ -66,7 +66,7 @@ export class photo extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   async englishTimeIsUp () {
@@ -167,7 +167,7 @@ export class photo extends plugin {
     let result = await res.data
     // console.log(result.code)
     if (result.code == 201) {
-      return e.reply(result.tips)
+      return this.reply(result.tips)
     }
     console.log(result)
     if (res.status == 200) {
@@ -247,5 +247,9 @@ export class photo extends plugin {
       await this.reply(segment.image(`${apiList[apiNumber - 1]}`))
       return true
     }
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

@@ -12,6 +12,7 @@ const defaultConfig = {
   sysgqjt: 1,
   gdkey: '',
   tmdb_r18: false,
+  recall_s: 0,
   studyGroups: '',
   buttonWhiteGroups: '',
   enableButton: false,

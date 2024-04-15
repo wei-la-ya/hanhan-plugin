@@ -2,6 +2,7 @@ import { recallSendForwardMsg, getRandomLineFromFile } from '../utils/common.js'
 import plugin from '../../../lib/plugins/plugin.js'
 import axios from 'axios'
 import he from 'he'
+import { Config } from './utils/config.js'
 
 const RootPath = process.cwd() + '/plugins/hanhan-plugin/'
 
@@ -41,7 +42,7 @@ export class text extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   // 沙雕新闻
@@ -81,7 +82,7 @@ export class text extends plugin {
     let result = await getRandomLineFromFile(path)
     console.log(result)
     result = he.decode(await result.replace(/<br>/g, '\n'))
-    e.reply(result)
+    this.reply(result)
   }
 
   // 油价查询
@@ -137,5 +138,9 @@ export class text extends plugin {
     result = result.replace(/name/g, msg)
     console.log(result)
     await this.reply(result)
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

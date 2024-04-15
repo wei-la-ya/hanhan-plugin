@@ -1,5 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { recallSendForwardMsg } from '../utils/common.js'
+import { Config } from './utils/config.js'
 
 const valueMap = {
   jk: 'jk',
@@ -55,7 +56,7 @@ export class girl extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
   }
 
   // 聚合
@@ -118,7 +119,7 @@ export class girl extends plugin {
         try {
           // sendmsg.push(data.images[0].url)
           sendmsg.push(segment.image(data.images[0].url))
-          e.reply(sendmsg)
+          this.reply(sendmsg)
         } catch (err) {
           console.log(err)
           e.reply(err)
@@ -129,5 +130,9 @@ export class girl extends plugin {
         console.error('An error occurred:', error.message)
       })
     return true // 返回true 阻挡消息不再往下
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }

@@ -1,5 +1,5 @@
 import plugin from '../../../lib/plugins/plugin.js'
-
+import { Config } from './utils/config.js'
 import fs from 'fs'
 const path = process.cwd()
 
@@ -43,7 +43,7 @@ export class diaotu extends plugin {
       // 随机选择一个文件名
       let photoNumber = Math.floor(Math.random() * photoList.length)
       // 发送图片
-      e.reply(segment.image('file:///' + path + tpQLDT + photoList[photoNumber]))
+      this.reply(segment.image('file:///' + path + tpQLDT + photoList[photoNumber]))
     }
   }
 
@@ -54,7 +54,7 @@ export class diaotu extends plugin {
       // 随机选择一个文件名
       let photoNumber = Math.floor(Math.random() * photoList.length)
       // 发送图片
-      e.reply(segment.image('file:///' + path + TPBQ + photoList[photoNumber]))
+      this.reply(segment.image('file:///' + path + TPBQ + photoList[photoNumber]))
     }
   }
 
@@ -65,12 +65,16 @@ export class diaotu extends plugin {
       // 随机选择一个文件名
       let photoNumber = Math.floor(Math.random() * photoList.length)
       // 发送图片
-      e.reply(segment.image('file:///' + path + TPDT + photoList[photoNumber]))
+      this.reply(segment.image('file:///' + path + TPDT + photoList[photoNumber]))
     }
   }
 
   async ysqd (e) {
     logger.info('[用户命令]')
-    e.reply(segment.video('file:///' + path + TPGML + 'ysqd.mp4'))
+    this.reply(segment.video('file:///' + path + TPGML + 'ysqd.mp4'))
+  }
+
+  async reply (message) {
+    return await this.e.reply(message, false, { recallMsg: Config.recall_s })
   }
 }
