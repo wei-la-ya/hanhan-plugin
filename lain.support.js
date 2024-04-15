@@ -68,7 +68,7 @@ export default class Button {
   }
 
   girl (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -96,7 +96,7 @@ export default class Button {
   }
 
   photo (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -115,7 +115,7 @@ export default class Button {
   }
 
   face (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -145,7 +145,7 @@ export default class Button {
   }
 
   text (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     button = []
@@ -171,7 +171,7 @@ export default class Button {
   }
 
   video (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -203,7 +203,7 @@ export default class Button {
   }
 
   voice (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -219,7 +219,7 @@ export default class Button {
   }
 
   manage (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -233,7 +233,7 @@ export default class Button {
   }
 
   number (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -247,7 +247,7 @@ export default class Button {
   }
 
   help (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [
@@ -267,7 +267,7 @@ export default class Button {
   }
 
   els (e) {
-    if (this.enableButton && e.bot?.adapter == 'QQBot') {
+    if (this.enableButton && e.bot.config?.markdown.type) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
     list = [

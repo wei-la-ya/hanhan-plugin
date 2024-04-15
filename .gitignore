@@ -1,5 +1,6 @@
 !config/config.example.json
-!config/config.json
+config/config.json
+.vscode/
 resources/ls/
 # Logs
 logs

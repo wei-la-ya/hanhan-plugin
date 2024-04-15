@@ -53,7 +53,7 @@ export class voice extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown) { return await this.reply('按钮菜单') }
+    if (e.bot.config?.markdown.type) { return await this.reply('按钮菜单') }
   }
 
   // 聚合
@@ -94,6 +94,6 @@ export class voice extends plugin {
     if (Config.enableButton || false) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
-    if (e.bot.config?.markdown) { return await this.reply('视频类菜单') }
+    if (e.bot.config?.markdown.type) { return await this.reply('视频类菜单') }
   }
 }
