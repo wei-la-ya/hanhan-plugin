@@ -2,7 +2,7 @@ import lodash from 'lodash'
 import { Data } from '../components/index.js'
 import HelpTheme from './help/HelpTheme.js'
 import runtimeRender from '../common/runtimeRender.js'
-import { Config } from './utils/config.js'
+import { Config } from '../utils/config.js'
 
 export class help extends plugin {
   constructor () {

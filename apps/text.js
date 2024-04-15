@@ -2,7 +2,7 @@ import { recallSendForwardMsg, getRandomLineFromFile } from '../utils/common.js'
 import plugin from '../../../lib/plugins/plugin.js'
 import axios from 'axios'
 import he from 'he'
-import { Config } from './utils/config.js'
+import { Config } from '../utils/config.js'
 
 const RootPath = process.cwd() + '/plugins/hanhan-plugin/'
 
