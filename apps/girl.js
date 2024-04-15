@@ -1,6 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { recallSendForwardMsg } from '../utils/common.js'
-import { Config } from './utils/config.js'
+import { Config } from '../utils/config.js'
 
 const valueMap = {
   jk: 'jk',

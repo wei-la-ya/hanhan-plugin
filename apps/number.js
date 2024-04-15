@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { recallSendForwardMsg } from '../utils/common.js'
 import fetch from 'node-fetch'
-import { Config } from './utils/config.js'
+import { Config } from '../utils/config.js'
 
 export class morse extends plugin {
   constructor () {
