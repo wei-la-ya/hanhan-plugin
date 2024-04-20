@@ -53,7 +53,7 @@ export class voice extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown.type) { return await this.reply('按钮菜单') }
+    if (e.bot.config?.markdown?.type) { return await this.reply('按钮菜单') }
   }
 
   // 聚合
@@ -67,7 +67,7 @@ export class voice extends plugin {
       await this.reply(segment.video(resp.url))
       await this.is_MD(e)
     } catch (error) {
-      e.reply('报错：' + error)
+      e.reply('连接超时，请稍候重试...')
     }
   }
 
@@ -82,7 +82,7 @@ export class voice extends plugin {
       this.reply(result.data.title)
       await this.reply(segment.video(result.data.video))
     } catch (error) {
-      e.reply('报错：' + error)
+      e.reply('连接超时，请稍候重试...')
     }
   }
 
@@ -94,6 +94,6 @@ export class voice extends plugin {
     if (Config.enableButton || false) {
       if (!(Config.buttonWhiteGroups.includes(e.group_id))) { return false }
     }
-    if (e.bot.config?.markdown.type) { return await this.reply('视频类菜单') }
+    if (e.bot.config?.markdown?.type) { return await this.reply('视频类菜单') }
   }
 }

@@ -66,7 +66,7 @@ export class photo extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown.type) { return await this.reply('按钮菜单') }
+    if (e.bot.config?.markdown?.type) { return await this.reply('按钮菜单') }
   }
 
   async englishTimeIsUp () {

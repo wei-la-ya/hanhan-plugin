@@ -1,7 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import common from '../../../lib/common/common.js'
 
-
 let gailv = 0.4 // 初始概率
 
 export class example extends plugin {

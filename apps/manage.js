@@ -48,7 +48,7 @@ export class manage extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown.type) { return await e.reply('按钮菜单') }
+    if (e.bot.config?.markdown?.type) { return await e.reply('按钮菜单') }
   }
 
   // 设置PingToken

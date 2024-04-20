@@ -42,7 +42,7 @@ export class text extends plugin {
   }
 
   async helps (e) {
-    if (e.bot.config?.markdown.type) { return await this.reply('按钮菜单') }
+    if (e.bot.config?.markdown?.type) { return await this.reply('按钮菜单') }
   }
 
   // 沙雕新闻
@@ -71,7 +71,7 @@ export class text extends plugin {
         e.reply('查询失败,可能接口失效力~，请联系憨憨捏~')
       }
     } catch (error) {
-      e.reply('报错：' + error)
+      e.reply('连接超时，请稍候重试...')
     }
   }
 
@@ -115,7 +115,7 @@ export class text extends plugin {
         await this.reply('查询失败,可能接口失效力~，请联系憨憨捏~')
       }
     } catch (error) {
-      e.reply('报错：' + error)
+      e.reply('连接超时，请稍候重试...')
     }
   }
 
