@@ -62,9 +62,9 @@ export class voice extends plugin {
       let name = valueMap[e.msg.replace('#', '')]
       if (!Config.enableVideo) { return }
       let urls = `http://ap.hanhan.icu:4006?category=${name}`
-      let resp = await fetch(urls)
+      // let resp = await fetch(urls)
       // console.log(resp.url)
-      await this.reply(segment.video(resp.url))
+      await this.reply(segment.video(urls))
       await this.is_MD(e)
     } catch (error) {
       e.reply('连接超时，请稍候重试...')
