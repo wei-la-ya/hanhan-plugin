@@ -125,7 +125,7 @@ export class urlAndBase extends plugin {
           if (contentType && contentType.includes('application/json')) {
             console.log(JSON.stringify(response.data))
             e.reply(JSON.stringify(response.data))
-          } else if (contentType && contentType.includes('text/html')) {
+          } else if (contentType && contentType.includes('text/')) {
           // 响应数据是文本类型
             console.log(response.data)
             e.reply(response.data)
