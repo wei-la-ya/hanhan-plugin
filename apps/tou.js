@@ -21,10 +21,13 @@ export class example extends plugin {
 
   async c (e) {
     let randomType = Math.random()
-    console.log(randomType)
     let at = e.message[1].qq
-    console.log(at)
-    let name = e.message[1].text.replace('@', '')
+    let name
+    if (e.message[1].name) {
+      name = e.message[1].name.replace('@', '')
+    } else if (e.message[1].text) {
+      name = e.message[1].text.replace('@', '')
+    }
     let name2 = e.sender.nickname
     let url2 = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${at}`
     let url3 = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.user_id}`
