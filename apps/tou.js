@@ -28,7 +28,7 @@ export class example extends plugin {
     } else if (e.message[1].text) {
       name = e.message[1].text.replace('@', '')
     }
-    let name2 = e.sender.nickname
+    let username2 = e.sender.nickname
     let username = e.sender.nickname
     let url2 = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${at}`
     let url3 = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.user_id}`
